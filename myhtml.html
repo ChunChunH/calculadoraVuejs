@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container" id="app">
+        <div class="row p-3">
+            <div v-if="result" v-html="result" class="col-12 numbersPlace"></div>
+            <div v-else-if="numeros" v-html="numeros + operador + numeros2" class="col-12 numbersPlace">0</div>
+            <div v-else class="col-12 numbersPlace">0</div>
+        </div> 
+        <div class="row">
+            <div class="col-3">
+                <div @click="reset" class="button symbol">C</div>
+            </div>
+            <div class="col-3">
+                <div @click="putSymbol('/')"class="button symbol">/</div>
+            </div>
+            <div class="col-3">
+                <div @click="putSymbol('*')" class="button symbol">*</div>
+            </div>
+            <div class="col-3">
+                <div @click="putSymbol('-')"class="button symbol">-</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-4">
+                        <div @click="putNumber(7)" class="button numbers">7</div>
+                    </div>
+                    <div class="col-4">
+                        <div @click="putNumber(8)" class="button numbers">8</div>
+                    </div>
+                    <div class="col-4">
+                        <div @click="putNumber(9)" class="button numbers">9</div>
+                    </div>
+                    <div class="col-4">
+                        <div @click="putNumber(4)" class="button numbers">4</div>
+                    </div>
+                    <div class="col-4">
+                        <div @click="putNumber(5)" class="button numbers">5</div>
+                    </div>
+                    <div class="col-4">
+                        <div @click="putNumber(6)" class="button numbers">6</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                    <div @click="putSymbol('+')" class="button symbol buttonMasAndIgual">+</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-4">
+                        <div @click="putNumber(1)" class="button numbers">1</div>
+                    </div>
+                    <div class="col-4">
+                        <div @click="putNumber(2)" class="button numbers">2</div>
+                    </div>
+                    <div class="col-4">
+                        <div @click="putNumber(3)" class="button numbers">3</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div @click="putNumber(0)" class="button numbers">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                    <div @click="putResult" class="button symbol buttonMasAndIgual">=</div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js2.js"></script>
+
+    <style>
+        .symbol{
+            color: white;
+            font-size: 35px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .symbol:hover{
+            color: white;
+            font-size: 35px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .numbers{
+            color: white;
+            font-size: 35px;
+            border: 1px solid white;
+        }
+        .numbers:hover{
+            color: white;
+            font-size: 35px;
+            border: 1px solid white;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .buttonMasAndIgual {
+            height: 88%;
+        }
+        .button {
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px 0px;
+            min-height: 70px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        } 
+        .numbersPlace {
+            height: 100px;
+            color: white;
+            font-size: 35px;
+            background-color: rgba(0, 0, 0, 0.5);
+            display:flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        #app {
+            margin-top: 100px;
+            max-width: 500px;
+            height: 600px;
+            background: rgb(217,136,117);
+            background: linear-gradient(90deg, rgba(217,136,117,1) 0%, rgba(203,102,134,1) 100%);
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3)
+        }
+        body {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</body>
+</html>
